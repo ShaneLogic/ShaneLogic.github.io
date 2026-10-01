@@ -4,6 +4,22 @@ An English academic website for Xuan-Yan Chen at HKUST: research, publications, 
 
 Public site: <https://shanelogic.github.io/>
 
+## Architecture
+
+Jekyll 4.4 renders Liquid templates, YAML profile data, and Markdown collections into static HTML. Plain CSS and a small native JavaScript file provide the responsive navigation, publication filters, citation copying, and image dialogs. Ruby/Bundler is the site-build toolchain; Node.js is only needed when rebuilding the committed Lucide icon bundle. There is no application server or database at runtime.
+
+| Route | Content source |
+| --- | --- |
+| `/` | `index.html`, profile data, featured publications and projects |
+| `/research/` | `research.html` and `_data/research.yml` |
+| `/publications/` | `publications.html` and `_publications/*.md` |
+| `/software/` | `software.html` and `_projects/*.md` |
+| `/software/:name/` | Project Markdown rendered through `_layouts/project.html` |
+| `/about/` | `about.html` and `_data/profile.yml` |
+| `/publications.bib` | `_includes/bibtex.html` rendered from the publication collection |
+
+The publication collection does not generate individual article pages. It feeds the homepage, directory, and bibliography. The project collection does generate detail pages. The default layout supplies canonical/Open Graph tags and a JSON-LD Person record; `jekyll-sitemap` generates the sitemap.
+
 ## Development
 
 Install Ruby 3.4 and Bundler, then run:
@@ -15,7 +31,12 @@ bundle exec jekyll serve --host 127.0.0.1 --port 4178
 
 Open `http://127.0.0.1:4178/`. Changes to `_config.yml` require restarting Jekyll.
 
-On a Mac using Homebrew's versioned Ruby, add `/opt/homebrew/opt/ruby@3.4/bin` to the command's PATH. Do not use the macOS system Ruby for this project.
+On a Mac using Homebrew's versioned Ruby, add `/opt/homebrew/opt/ruby@3.4/bin` to the command's PATH. Do not use the macOS system Ruby for this project:
+
+```sh
+export PATH="/opt/homebrew/opt/ruby@3.4/bin:$PATH"
+bundle check
+```
 
 ## Updating content
 
@@ -37,6 +58,12 @@ The optional `bib_authors` field supports explicit `Family, Given` names for com
 Topics currently used by the filters are `lattice`, `defects`, `learning`, and `synthesis`. The publication list supports multi-word search, year/topic combinations, clear/reset, shareable query parameters, and an empty state. The complete list remains readable without JavaScript.
 
 Project Markdown front matter supplies links, media, and the summary. Its body becomes a detail page. Add only working documentation and repository links. Label representative structures accurately; do not imply that an illustration is a calculated trajectory or software screenshot.
+
+### Publication and Contact Policy
+
+Add a publication only after checking its title, author list, year, venue, and DOI against the actual published record. Keep unpublished software descriptions in `_projects`; do not invent article metadata or add a project Citation section for software without a published paper. The bibliography and copy buttons on the publication page refer to real article records, not to the website itself.
+
+The public contact address is maintained once in `_data/profile.yml`: `xchen565@connect.hkust-gz.edu.cn`. Templates reuse that value for the homepage, About page, and footer.
 
 This release intentionally has no CV download or PDF. The original CV and private planning notes are not part of the repository. Do not copy them into `assets` or `_data`.
 
@@ -82,3 +109,7 @@ The Jekyll collection/template approach is adapted from [Shitong Luo's academic-
 Icons: [Lucide](https://lucide.dev/), ISC license. Core content and images are served locally without analytics, remote fonts, or live publication API calls.
 
 Publication metadata was checked against the author's supplied academic records, [ORCID](https://orcid.org/0000-0002-7055-7387), and publisher records on 2026-10-01. The list is maintained explicitly; it is not a live Scholar mirror. Research summaries are brief paraphrases, not verbatim publisher abstracts.
+
+## Project Contact
+
+Xuan-Yan Chen: [xchen565@connect.hkust-gz.edu.cn](mailto:xchen565@connect.hkust-gz.edu.cn).
