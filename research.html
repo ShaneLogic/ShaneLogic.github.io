@@ -1,0 +1,8 @@
+---
+title: Research
+nav: research
+permalink: /research/
+description: Research on finite-temperature lattice dynamics, atomistic modeling, defects, and photovoltaic device physics.
+---
+<div class="page-heading"><p class="eyebrow">Questions across scales</p><h1>Research</h1><p class="page-lead">Understanding materials through their structure,<br class="desktop-break"> dynamics, and response.</p></div>
+{% for topic in site.data.research %}<section class="research-section" id="{{ topic.id }}"><div class="research-copy"><p class="eyebrow">{{ topic.number }} / Research theme</p><h2>{{ topic.title }}</h2><p>{{ topic.description }}</p><p class="methods">{{ topic.methods }}</p><div class="related-papers"><h3>Related publications</h3>{% for paper_id in topic.papers %}{% assign paper = site.publications | where: 'slug', paper_id | first %}<a href="{{ '/publications/#' | append: paper_id | relative_url }}">{{ paper.title | escape }} <i data-lucide="arrow-up-right"></i></a>{% endfor %}</div></div><figure class="research-figure"><button class="image-zoom" type="button" data-image="{{ topic.image | relative_url }}" data-caption="{{ topic.caption | escape }}" aria-label="Enlarge {{ topic.image_alt | escape }}"><img src="{{ topic.image | relative_url }}" alt="{{ topic.image_alt }}" width="1280" height="960" loading="lazy" decoding="async"><span class="zoom-cue"><i data-lucide="expand"></i></span></button><figcaption>{{ topic.caption }}</figcaption></figure></section>{% endfor %}

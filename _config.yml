@@ -1,0 +1,43 @@
+title: Xuan-Yan Chen
+description: Computational materials research, lattice dynamics, and scientific software for photovoltaic modeling.
+url: https://shanelogic.github.io
+baseurl: ""
+lang: en
+timezone: Asia/Shanghai
+markdown: kramdown
+permalink: pretty
+plugins:
+  - jekyll-sitemap
+collections:
+  publications:
+    output: false
+  projects:
+    output: true
+    permalink: /software/:name/
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+      image: /assets/images/portrait.jpg
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: project
+      nav: software
+exclude:
+  - README.md
+  - LICENSE
+  - ASSETS.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - scripts
+  - output
+  - node_modules
+  - package.json
+  - package-lock.json
+  - .playwright-cli
+  - .github
+  - .ruby-version

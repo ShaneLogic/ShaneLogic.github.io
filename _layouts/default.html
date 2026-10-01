@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% if page.title %}{% capture document_title %}{{ page.title }} | {{ site.title }}{% endcapture %}{% else %}{% assign document_title = site.title %}{% endif %}
+  <title>{{ document_title | escape }}</title>
+  <meta name="description" content="{{ page.description | default: site.description | escape }}">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ document_title | escape }}">
+  <meta property="og:description" content="{{ page.description | default: site.description | escape }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:image" content="{{ page.image | absolute_url }}">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="{{ '/assets/images/favicon.png' | relative_url }}" type="image/png">
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+  <script>document.documentElement.classList.add('js');</script>
+  <script src="{{ '/assets/js/lucide.min.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Person","name":{{ site.data.profile.name | jsonify }},"url":{{ '/' | absolute_url | jsonify }},"image":{{ site.data.profile.portrait | absolute_url | jsonify }},"jobTitle":{{ site.data.profile.role | jsonify }},"affiliation":{"@type":"Organization","name":"HKUST","url":{{ site.data.profile.institution_url | jsonify }}},"sameAs":[{{ site.data.profile.github | jsonify }},{{ site.data.profile.scholar | jsonify }},{{ site.data.profile.orcid | jsonify }}]}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner container">
+      <a class="wordmark" href="{{ '/' | relative_url }}">Xuan-Yan Chen<span class="wordmark-dot" aria-hidden="true">.</span></a>
+      <button class="nav-toggle icon-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-nav"><i data-lucide="menu"></i></button>
+      <nav id="primary-nav" class="primary-nav" aria-label="Main navigation">
+        {% for link in site.data.navigation %}<a href="{{ link.url | relative_url }}"{% if page.nav == link.key %} aria-current="page"{% endif %}>{{ link.title }}</a>{% endfor %}
+      </nav>
+    </div>
+  </header>
+  <main id="main" class="container" tabindex="-1">{{ content }}</main>
+  <footer class="site-footer container">
+    <p>&copy; {{ site.time | date: '%Y' }} Xuan-Yan Chen <span class="footer-separator" aria-hidden="true">/</span> HKUST</p>
+    <div><a href="{{ site.data.profile.orcid }}" target="_blank" rel="noopener noreferrer">ORCID</a><a href="{{ site.data.profile.github }}" target="_blank" rel="noopener noreferrer">GitHub</a><a href="mailto:{{ site.data.profile.email }}">Email <i data-lucide="arrow-up-right"></i></a></div>
+  </footer>
+  <div id="site-status" class="toast" role="status" aria-live="polite"></div>
+  <dialog class="image-dialog" id="image-dialog" aria-label="Research image">
+    <div class="dialog-top"><span id="image-dialog-caption"></span><button class="icon-button" type="button" data-close-image aria-label="Close image" title="Close image"><i data-lucide="x"></i></button></div>
+    <img src="{{ '/assets/images/mapbi3.webp' | relative_url }}" alt="" id="image-dialog-content" loading="lazy">
+  </dialog>
+</body>
+</html>

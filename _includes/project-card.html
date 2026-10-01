@@ -1,0 +1,5 @@
+{% assign project = include.project %}
+<article class="project-card">
+  <a class="project-image" href="{{ project.url | relative_url }}"><img src="{{ project.image | relative_url }}" alt="{{ project.image_alt }}" width="640" height="480" loading="lazy" decoding="async"></a>
+  <div class="project-card-content"><p class="eyebrow">{{ project.category }}</p><h3><a href="{{ project.url | relative_url }}">{{ project.title }} <i data-lucide="arrow-up-right"></i></a></h3><p>{{ project.description }}</p><div class="project-stack">{{ project.stack }}</div></div>
+</article>

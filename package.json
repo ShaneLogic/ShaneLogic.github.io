@@ -1,0 +1,11 @@
+{
+  "name": "xuanyan-chen-academic-homepage",
+  "private": true,
+  "scripts": {
+    "build:icons": "esbuild scripts/icons.js --bundle --minify --format=iife --outfile=assets/js/lucide.min.js --legal-comments=inline"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.12",
+    "lucide": "1.49.0"
+  }
+}

@@ -1,0 +1,42 @@
+- id: lattice-dynamics
+  number: "01"
+  title: Lattice dynamics & stability
+  short: Molecular motion, thermal fluctuations, and the stability of soft semiconductors.
+  description: >-
+    In halide perovskites, the instantaneous atomic structure can differ substantially
+    from the average crystal structure. I investigate how molecular rotation and
+    lattice fluctuations affect dynamical stability, electronic structure, and carrier
+    behavior using finite-temperature atomistic simulations.
+  methods: First-principles calculations / Molecular dynamics / Finite-temperature phonons
+  image: /assets/images/mapbi3.webp
+  image_alt: Representative methylammonium lead iodide crystal structure
+  caption: A representative MAPbI3 structure from the public InterfaceML repository.
+  papers: [crystal-liquid, carrier-dynamics, thermal-fluctuations]
+- id: atomistic-modeling
+  number: "02"
+  title: Learning & atomistic modeling
+  short: Machine-learning interatomic potentials and computational tools for complex structures.
+  description: >-
+    Atomistic models connect local geometry to collective behavior. My published work
+    includes deep-learning-potential studies of atomic displacements in CuCl and
+    polarization switching in GeS nanotubes. I also develop tools for building interfaces
+    and preparing molecular-reorientation paths for subsequent electronic-structure calculations.
+  methods: Machine-learning potentials / Interface construction / Molecular reorientation
+  image: /assets/images/interface.webp
+  image_alt: Side view of a MAPbI3 and TiO2 interface structure
+  caption: A MAPbI3/TiO2 interface supplied in the public InterfaceML structure collection.
+  papers: [cucl-potential, ges-nanotubes]
+- id: photovoltaic-physics
+  number: "03"
+  title: Defects, interfaces & devices
+  short: Connecting materials-level mechanisms with photovoltaic device physics.
+  description: >-
+    Defects and interfaces govern recombination and charge transport in solar cells.
+    My work examines defect passivation in CIGS absorbers and develops numerical tools
+    for thin-film device simulation. SolarLab brings drift-diffusion, electrostatics,
+    mobile-ion dynamics, and optical generation into a common modeling workflow.
+  methods: Defect physics / Drift-diffusion / Electrostatics / Optical modeling
+  image: /assets/images/solarlab.webp
+  image_alt: SolarLab current-voltage benchmark with a comparison table
+  caption: A published SolarLab benchmark figure; its comparison and limitations are documented in the repository.
+  papers: [cigs-passivation, indium-alloying]

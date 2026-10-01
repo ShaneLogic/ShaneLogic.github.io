@@ -1,0 +1,38 @@
+name: Xuan-Yan Chen
+role: PhD Student in Advanced Materials
+institution: HKUST
+institution_url: https://www.hkust-gz.edu.cn/
+email: xchen565@connect.hkust-gz.edu.cn
+location: Guangzhou, China
+github: https://github.com/ShaneLogic
+scholar: https://scholar.google.com/citations?user=j_3wDUUAAAAJ&hl=en
+orcid: https://orcid.org/0000-0002-7055-7387
+portrait: /assets/images/portrait.jpg
+intro: >-
+  I study atomic motion, defects, and interfaces in photovoltaic materials,
+  connecting first-principles calculations and molecular dynamics with device-scale simulation.
+bio: >-
+  I am a PhD student in Advanced Materials at HKUST. My research spans finite-temperature
+  lattice dynamics, defects and interfaces, and charge transport in photovoltaic materials.
+  Alongside these studies, I develop scientific software for interface construction,
+  molecular reorientation, and solar-cell modeling.
+education:
+  - degree: PhD in Advanced Materials
+    institution: HKUST
+    dates: 2024 - present
+    detail: Computational materials science and multiscale photovoltaic modeling.
+  - degree: MPhil in Sustainable Energy and Environment
+    institution: HKUST
+    dates: 2022 - 2024
+    detail: Molecular modeling and computational materials research.
+  - degree: Bachelor's Degree in Applied Chemistry
+    institution: Southwest University
+    dates: 2016 - 2020
+    detail: School of Chemistry and Chemical Engineering.
+awards:
+  - name: Full PhD Scholarship, HKUST
+    year: 2024
+  - name: Full MPhil Scholarship, HKUST
+    year: 2022
+  - name: First Prize, Student Science and Technology Innovation Fund, Southwest University
+    year: 2018

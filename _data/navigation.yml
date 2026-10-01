@@ -1,0 +1,15 @@
+- title: Home
+  key: home
+  url: /
+- title: Research
+  key: research
+  url: /research/
+- title: Publications
+  key: publications
+  url: /publications/
+- title: Software
+  key: software
+  url: /software/
+- title: About
+  key: about
+  url: /about/

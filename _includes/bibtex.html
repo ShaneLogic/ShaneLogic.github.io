@@ -1,0 +1,9 @@
+@article{Chen{{ include.paper.year }}{{ include.paper.slug | remove: '-' }},
+  title = { {{- include.paper.title -}} },
+  author = { {{- include.paper.authors | join: ' and ' -}} },
+  journal = { {{- include.paper.journal -}} },
+  year = { {{- include.paper.year -}} },
+  {% if include.paper.volume %}volume = { {{- include.paper.volume -}} },
+  {% endif %}{% if include.paper.pages %}pages = { {{- include.paper.pages -}} },
+  {% endif %}doi = { {{- include.paper.doi -}} }
+}

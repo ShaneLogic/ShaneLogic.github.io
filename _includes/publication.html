@@ -1,0 +1,12 @@
+{% assign paper = include.paper %}
+{% capture search_text %}{{ paper.title }} {{ paper.journal }} {{ paper.authors | join: ' ' }} {{ paper.summary }}{% endcapture %}
+<article class="publication" id="{{ paper.slug }}" data-publication data-year="{{ paper.year }}" data-topic="{{ paper.topic }}" data-search="{{ search_text | normalize_whitespace | escape }}">
+  <div class="publication-meta"><span class="venue">{{ paper.journal_short | default: paper.journal }}</span><span>{{ paper.year }}</span>{% if paper.featured %}<span class="selected-mark" role="img" title="Selected publication" aria-label="Selected publication"><i data-lucide="bookmark"></i></span>{% endif %}</div>
+  <h3><a href="https://doi.org/{{ paper.doi }}" target="_blank" rel="noopener noreferrer">{{ paper.title | escape }}</a></h3>
+  <p class="authors">{% for author in paper.authors %}{% if author == 'Xuan-Yan Chen' or author == 'Xuanyan Chen' %}<strong>{{ author }}</strong>{% else %}{{ author }}{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}</p>
+  <div class="publication-bottom">
+    <div class="resource-links"><a href="https://doi.org/{{ paper.doi }}" target="_blank" rel="noopener noreferrer">Paper <i data-lucide="arrow-up-right"></i></a>{% if paper.preprint %}<a href="{{ paper.preprint }}" target="_blank" rel="noopener noreferrer">Preprint <i data-lucide="arrow-up-right"></i></a>{% endif %}<button type="button" class="copy-citation" data-copy-target="bib-{{ paper.slug }}" title="Copy BibTeX citation" aria-label="Copy BibTeX citation for {{ paper.title | escape }}"><i data-lucide="copy"></i><span>BibTeX</span></button></div>
+    <details class="paper-summary"><summary>Research summary <i data-lucide="chevron-down"></i></summary><p>{{ paper.summary }}</p></details>
+  </div>
+  <pre id="bib-{{ paper.slug }}" hidden>{% include bibtex.html paper=paper %}</pre>
+</article>

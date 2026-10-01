@@ -1,0 +1,21 @@
+---
+title: Publications
+nav: publications
+permalink: /publications/
+description: Publications by Xuan-Yan Chen on lattice dynamics, defects, machine-learning potentials, and photovoltaic materials.
+---
+<div class="page-heading"><p class="eyebrow">Research output</p><h1>Publications</h1><p class="page-lead">Lattice dynamics, materials physics, and atomistic modeling.</p><div class="resource-links"><a href="{{ site.data.profile.scholar }}" target="_blank" rel="noopener noreferrer">Google Scholar <i data-lucide="arrow-up-right"></i></a><a href="{{ '/publications.bib' | relative_url }}" download><i data-lucide="download"></i> Bibliography</a></div></div>
+<section aria-label="Publication directory" class="publication-directory">
+  <form class="publication-filters" role="search" aria-label="Search publications">
+    <label class="search-field"><span class="sr-only">Search publications</span><i data-lucide="search"></i><input type="search" id="publication-search" name="q" placeholder="Search title, author, or keyword" autocomplete="off"></label>
+    <label><span class="sr-only">Publication year</span><select id="publication-year" name="year"><option value="">All years</option>{% assign years = site.publications | map: 'year' | uniq | sort | reverse %}{% for year in years %}<option value="{{ year }}">{{ year }}</option>{% endfor %}</select></label>
+    <label><span class="sr-only">Research topic</span><select id="publication-topic" name="topic"><option value="">All topics</option><option value="lattice">Lattice dynamics</option><option value="defects">Defects & interfaces</option><option value="learning">Machine-learning potentials</option><option value="synthesis">Materials synthesis</option></select></label>
+    <button class="icon-button" id="clear-filters" type="reset" aria-label="Clear filters" title="Clear filters"><i data-lucide="rotate-ccw"></i></button>
+  </form>
+  <p class="results-count" id="results-count" role="status" aria-live="polite">{{ site.publications.size }} publications</p>
+  {% assign groups = site.publications | group_by: 'year' | sort: 'name' | reverse %}{% for group in groups %}<section class="publication-year-group" data-year-group aria-label="Publications from {{ group.name }}"><h2 class="year-label">{{ group.name }}</h2><div>{% assign papers = group.items | sort: 'sort_order' %}{% for paper in papers %}{% include publication.html paper=paper %}{% endfor %}</div></section>{% endfor %}
+  <div class="empty-state" id="no-results" hidden><i data-lucide="search"></i><h2>No matching publications</h2><button type="button" class="text-link" data-reset-search>Clear filters <i data-lucide="arrow-right"></i></button></div>
+</section>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{% assign articles = site.publications | sort: 'sort_order' %}{% for paper in articles %}{"@type":"ListItem","position":{{ forloop.index }},"item":{"@type":"ScholarlyArticle","name":{{ paper.title | jsonify }},"datePublished":{{ paper.year | append: '' | jsonify }},"url":{{ paper.doi | prepend: 'https://doi.org/' | jsonify }},"author":[{% for author in paper.authors %}{"@type":"Person","name":{{ author | jsonify }}}{% unless forloop.last %},{% endunless %}{% endfor %}]}}{% unless forloop.last %},{% endunless %}{% endfor %}]}
+</script>
