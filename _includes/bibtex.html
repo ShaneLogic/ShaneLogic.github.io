@@ -1,6 +1,7 @@
+{% assign protected_title = include.paper.title | prepend: '{' | append: '}' %}{% if include.paper.bib_authors %}{% assign bib_authors = include.paper.bib_authors %}{% else %}{% assign bib_authors = include.paper.authors | join: ' and ' %}{% endif -%}
 @article{Chen{{ include.paper.year }}{{ include.paper.slug | remove: '-' }},
-  title = { {{- include.paper.title -}} },
-  author = { {{- include.paper.authors | join: ' and ' -}} },
+  title = { {{- protected_title -}} },
+  author = { {{- bib_authors -}} },
   journal = { {{- include.paper.journal -}} },
   year = { {{- include.paper.year -}} },
   {% if include.paper.volume %}volume = { {{- include.paper.volume -}} },

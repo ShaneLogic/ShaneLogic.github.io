@@ -1,6 +1,7 @@
 ---
 title: Distinguishing Thermal Fluctuations from Polaron Formation in Halide Perovskites
 authors: [Bai-Qing Zhao, Jue-Yi Qi, Xun Xu, Xuan-Yan Chen, Chuan-Nan Li, Jinshan Li, Chris G. Van de Walle, Xie Zhang]
+bib_authors: "Zhao, Bai-Qing and Qi, Jue-Yi and Xu, Xun and Chen, Xuan-Yan and Li, Chuan-Nan and Li, Jinshan and Van de Walle, Chris G. and Zhang, Xie"
 journal: Physical Review Letters
 journal_short: Phys. Rev. Lett.
 year: 2025

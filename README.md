@@ -32,6 +32,8 @@ On a Mac using Homebrew's versioned Ruby, add `/opt/homebrew/opt/ruby@3.4/bin` t
 
 Add one Markdown file per publication. Preserve the published author order and DOI. Set `featured: true` and `featured_order` for homepage selections. `year`, `topic`, and `sort_order` control the publication directory. BibTeX is generated from the same metadata, so it does not need a second manually maintained list.
 
+The optional `bib_authors` field supports explicit `Family, Given` names for compound surnames. Exported titles retain their capitalization, including chemical symbols.
+
 Topics currently used by the filters are `lattice`, `defects`, `learning`, and `synthesis`. The publication list supports multi-word search, year/topic combinations, clear/reset, shareable query parameters, and an empty state. The complete list remains readable without JavaScript.
 
 Project Markdown front matter supplies links, media, and the summary. Its body becomes a detail page. Add only working documentation and repository links. Label representative structures accurately; do not imply that an illustration is a calculated trajectory or software screenshot.
